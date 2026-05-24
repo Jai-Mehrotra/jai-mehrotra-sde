@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jai Mehrotra | Software Development Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0a0a0a; --surface: #171717; --card: #262626;
+            --accent: #22d3ee; --accent2: #a78bfa; --text: #e5e5e5; --muted: #a3a3a3;
+            --gradient: linear-gradient(135deg, #22d3ee, #a78bfa);
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--accent2); }
+
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            background: radial-gradient(ellipse at 50% 0%, rgba(34,211,238,0.1) 0%, transparent 60%);
+            text-align: center; padding: 2rem;
+        }
+        .hero h1 { font-size: 3.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .hero h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p.tagline { font-size: 1.25rem; color: var(--muted); margin-bottom: 1.5rem; max-width: 640px; }
+        .hero-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .hero-links a {
+            padding: 0.6rem 1.4rem; border-radius: 8px; font-weight: 500; font-size: 0.95rem;
+            border: 1px solid var(--accent); transition: all 0.2s;
+        }
+        .hero-links a:hover { background: var(--accent); color: var(--bg); }
+        .hero-links a.filled { background: var(--accent); color: var(--bg); }
+        .hero-links a.filled:hover { background: var(--accent2); border-color: var(--accent2); }
+
+        section { max-width: 960px; margin: 0 auto; padding: 4rem 1.5rem; }
+        .section-title {
+            font-size: 1.8rem; font-weight: 700; margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 0.3rem;
+        }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .skill-card {
+            background: var(--surface); border-radius: 12px; padding: 1.5rem;
+            border: 1px solid transparent; transition: border-color 0.3s;
+        }
+        .skill-card:hover { border-color: var(--accent); }
+        .skill-card h3 { color: var(--accent); margin-bottom: 0.8rem; font-size: 1.05rem; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .skill-tags span {
+            background: var(--card); padding: 0.3rem 0.7rem; border-radius: 6px;
+            font-size: 0.82rem; color: var(--muted);
+        }
+
+        .timeline { position: relative; padding-left: 2rem; }
+        .timeline::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+            width: 2px; background: var(--card);
+        }
+        .timeline-item { position: relative; margin-bottom: 2.5rem; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -2rem; top: 0.5rem;
+            width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
+            border: 2px solid var(--bg); transform: translateX(-5px);
+        }
+        .timeline-item h3 { font-size: 1.1rem; margin-bottom: 0.2rem; }
+        .timeline-item .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.6rem; }
+        .timeline-item ul { list-style: none; }
+        .timeline-item li { position: relative; padding-left: 1.2rem; margin-bottom: 0.4rem; font-size: 0.92rem; color: var(--muted); }
+        .timeline-item li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .project-card {
+            background: var(--surface); border-radius: 12px; padding: 1.5rem;
+            border: 1px solid transparent; transition: all 0.3s;
+        }
+        .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .project-card h3 { margin-bottom: 0.4rem; font-size: 1.05rem; }
+        .project-card .tech { color: var(--accent); font-size: 0.82rem; margin-bottom: 0.6rem; }
+        .project-card p { font-size: 0.9rem; color: var(--muted); }
+        .project-card .links { margin-top: 0.8rem; }
+        .project-card .links a { font-size: 0.85rem; margin-right: 1rem; }
+        .ai-badge {
+            display: inline-block; background: linear-gradient(135deg, #a78bfa, #f472b6);
+            color: #fff; font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 4px;
+            margin-left: 0.5rem; vertical-align: middle; font-weight: 600;
+        }
+
+        .cert-list { display: flex; flex-direction: column; gap: 0.8rem; }
+        .cert-item {
+            background: var(--surface); padding: 1rem 1.5rem; border-radius: 10px;
+            display: flex; align-items: center; gap: 1rem;
+        }
+        .cert-item .icon { font-size: 1.5rem; }
+        .cert-item a { font-weight: 500; }
+        .cert-item span { color: var(--muted); font-size: 0.85rem; }
+
+        footer {
+            text-align: center; padding: 2rem; color: var(--muted); font-size: 0.85rem;
+            border-top: 1px solid var(--card);
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            section { padding: 3rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+    <div>
+        <h1>Jai <span>Mehrotra</span></h1>
+        <p class="tagline">Software Development Engineer building scalable full-stack applications, responsive UIs, and AI-powered features with React, Python, and Node.js.</p>
+        <div class="hero-links">
+            <a href="mailto:jai.mehrotra26@gmail.com" class="filled">Contact Me</a>
+            <a href="https://www.linkedin.com/in/jai-mehrotra-6b20461ba/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/Jai-Mehrotra" target="_blank">GitHub</a>
+        </div>
+    </div>
+</div>
+
+<!-- Skills -->
+<section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>Languages</h3>
+            <div class="skill-tags">
+                <span>JavaScript</span><span>TypeScript</span><span>Python</span>
+                <span>Java</span><span>C/C++</span><span>SQL</span><span>HTML</span><span>CSS</span>
+            </div>
+        </div>
+        <div class="skill-card">
+            <h3>Frontend</h3>
+            <div class="skill-tags">
+                <span>React</span><span>Angular</span><span>Tailwind CSS</span>
+                <span>Bootstrap</span><span>Responsive Design</span>
+                <span>HTML5/CSS3</span><span>Chart.js</span>
+            </div>
+        </div>
+        <div class="skill-card">
+            <h3>Backend & APIs</h3>
+            <div class="skill-tags">
+                <span>Node.js</span><span>Express</span><span>Django</span>
+                <span>FastAPI</span><span>Spring Boot</span><span>REST APIs</span>
+            </div>
+        </div>
+        <div class="skill-card">
+            <h3>AI / ML</h3>
+            <div class="skill-tags">
+                <span>LLMs</span><span>Langchain</span><span>LlamaIndex</span>
+                <span>NLP</span><span>Scikit-learn</span><span>ML Integration</span>
+            </div>
+        </div>
+        <div class="skill-card">
+            <h3>Cloud & DevOps</h3>
+            <div class="skill-tags">
+                <span>Azure</span><span>Azure DevOps</span><span>CI/CD</span>
+                <span>Git</span><span>Docker</span><span>Linux</span>
+            </div>
+        </div>
+        <div class="skill-card">
+            <h3>Databases</h3>
+            <div class="skill-tags">
+                <span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span>
+                <span>Firebase</span><span>SQL Server</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h3>Software Engineer 1 — MAQ Software</h3>
+            <div class="meta">August 2024 – Present · Noida, India</div>
+            <ul>
+                <li>Built scalable, responsive web applications using React, JavaScript, TypeScript, and Node.js with OO design patterns.</li>
+                <li>Developed reusable front-end components with React and HTML/CSS, implementing responsive/adaptive design across devices and browsers.</li>
+                <li>Designed RESTful APIs using Python and Node.js/Express, streamlining client-server integrations.</li>
+                <li>Collaborated in Agile sprints with CI/CD pipelines, Git versioning, and automated testing for deployment stability.</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <h3>Associate Software Engineer — MAQ Software</h3>
+            <div class="meta">January 2024 – July 2024 · Noida, India</div>
+            <ul>
+                <li>Engineered a modular Power App with form-driven workflows and logic-based routing, reducing resolution time by 30%.</li>
+                <li>Integrated JavaScript and Xrm JS for client-side validations, conditional rendering, and API-based data fetching.</li>
+                <li>Orchestrated backend automation using REST APIs and Power Automate, reducing manual dependencies by 40%.</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <h3>Software Engineer Intern — Talent Serve</h3>
+            <div class="meta">June 2023 – July 2023 · Mumbai, India</div>
+            <ul>
+                <li>Built a secure web app using Django and PostgreSQL with JWT authentication and role-based access control.</li>
+                <li>Created a responsive frontend with React and Tailwind CSS, achieving 95% user satisfaction.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>Video-GPT <span class="ai-badge">AI/ML</span></h3>
+            <div class="tech">Python · LlamaIndex · Langchain · React · FastAPI</div>
+            <p>AI-powered video Q&A system using GPT Tree Index for subtitle indexing. Built RESTful APIs with FastAPI, reducing response times by 45% and improving answer accuracy by 30%.</p>
+            <div class="links">
+                <a href="https://github.com/Jai-Mehrotra/Video-Gpt" target="_blank">GitHub →</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <h3>GreenChoice <span class="ai-badge">AI/ML</span></h3>
+            <div class="tech">React · Node.js · Express · MongoDB · ML APIs</div>
+            <p>Full-stack eco-commerce platform with ML-powered product recommendations. Designed responsive React UI improving user retention by 40%.</p>
+            <div class="links">
+                <a href="https://github.com/Jai-Mehrotra/GreenChoice" target="_blank">GitHub →</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <h3>Ad Analytics Dashboard</h3>
+            <div class="tech">React · TypeScript · Node.js · Chart.js · REST APIs</div>
+            <p>Responsive, cross-browser analytics dashboard for advertising metrics (CTR, ROAS, impressions). Built reusable React components with client-side and server-side rendering.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications -->
+<section id="certifications">
+    <h2 class="section-title">Certifications &amp; Achievements</h2>
+    <div class="cert-list">
+        <div class="cert-item">
+            <div class="icon">🏅</div>
+            <div>
+                <a href="https://learn.microsoft.com/api/credentials/share/en-us/JaiMehrotra-8313/82C5368FBFEE8260?sharingId=665F4384EF49C938" target="_blank">Microsoft Certified: Fabric Data Analyst Associate (DP-600)</a><br>
+                <span>Microsoft</span>
+            </div>
+        </div>
+        <div class="cert-item">
+            <div class="icon">🏅</div>
+            <div>
+                <a href="https://learn.microsoft.com/en-us/users/jaimehrotramaqsoftware-7702/credentials/8a486f50309ded69" target="_blank">Microsoft Certified: Fabric Data Engineer Associate</a><br>
+                <span>Microsoft</span>
+            </div>
+        </div>
+        <div class="cert-item">
+            <div class="icon">❄️</div>
+            <div>
+                <a href="https://www.credential.net/profile/jaimehrotra138672/wallet" target="_blank">SnowPro Core Certification</a><br>
+                <span>Snowflake</span>
+            </div>
+        </div>
+        <div class="cert-item">
+            <div class="icon">🏆</div>
+            <div>
+                <strong>Winner, BlackRock Hackathon</strong> — Built a real-time risk management system<br>
+                <span>450+ LeetCode problems solved</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education -->
+<section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h3>B.E. Computer Engineering — Thapar Institute of Engineering and Technology</h3>
+            <div class="meta">2020 – 2024 · Patiala, Punjab · GPA: 8.22/10.0</div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 Jai Mehrotra · Built with purpose
+</footer>
+
+</body>
+</html>
